@@ -1,0 +1,30 @@
+﻿@using WURFL
+@model WURFL.IDevice
+
+@{
+    ViewBag.Title = "Home Page";
+    var capabilities = Model.GetCapabilities();
+    var virtualCapabilities = Model.GetVirtualCapabilities();
+}
+
+<h2>User Agent</h2>
+@Request.UserAgent
+
+<h2>Normailized User Agent</h2>
+@Model.NormalizedUserAgent
+
+<h2>Capabilities</h2>
+<ul>
+    @foreach (var kvp in capabilities)
+    {
+        <li>@kvp.Key - @kvp.Value</li>
+    }
+</ul>
+
+<h2>Virtual Capabilities</h2>
+<ul>
+    @foreach (var kvp in virtualCapabilities)
+    {
+        <li>@kvp.Key - @kvp.Value</li>
+    }
+</ul>
